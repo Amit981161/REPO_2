@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Watch the Video</h2>
+
+  <video id="video" width="600" controls>
+    <source src="assets/your-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="instructions">
+    
+    <h3>-Instructions</h3>
+    <ol>
+      <li>Watch the complete video to unlock the form.</li>
+      <li>After video completion, fill the form and generate your certificate.</li>
+    </ol>
+  </div>
+  <div class="bg">
+  </div>
+  <!-- Hidden initially -->
+  <div id="formSection" style="display: none;">
+    <h2>Fill the Form</h2>
+    <form id="certificateForm">
+      <label>Name: <input type="text" name="name" required></label><br>
+     <!-- Phone input with exactly 10 digits -->
+      <label>
+      Phone:
+        <input
+          type="text"
+          name="phone"
+          pattern="^\d{10}$"
+          maxlength="10"
+          required
+          title="Please enter a 10-digit phone number"
+      >
+      </label><br>
+       <label>
+      Upload or Capture Image:
+      <input
+        type="file"
+        name="photo"
+        accept="image/*"
+        capture="environment"
+        required
+      >
+    </label><br>
+
+    
+      <!-- <label>Date: <input type="date" name="date" required></label><br> -->
+      <button type="submit">Generate Certificate</button>
+    </form>
+  </div>
+
+  <canvas id="certificateCanvas" width="800" height="600" style="display:none;"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
